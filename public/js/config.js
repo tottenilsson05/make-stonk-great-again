@@ -14,9 +14,9 @@ const CONFIG = {
   // put the files in /public/assets/logos/ and set the paths, e.g. "assets/logos/dexscreener.svg".
   // While a value is empty, the button shows a generic XP-style icon (chart / rocket / X) instead.
   logos: {
-    dexscreener: "",
+    dexscreener: "assets/logos/dexscreener.png",
     x: "",
-    stonk: "",
+    stonk: "assets/logos/stonk.png",
     pumpfun: ""
   },
 

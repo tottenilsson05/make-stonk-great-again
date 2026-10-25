@@ -530,3 +530,4 @@ html.is-mod .status-pill.modflag{display:inline-flex}
 .modflag{display:none}
 .logo-slot.generic svg{width:100%;height:100%;display:block;filter:drop-shadow(0 1px 1px rgba(16,26,71,.25))}
 .tile .ic>.logo-slot{width:34px;height:34px}
+.logo-slot.has-logo:not(.generic) img{border-radius:22%;box-shadow:0 1px 2px rgba(16,26,71,.35)}
