@@ -332,7 +332,6 @@
       <a class="sm-item" data-link="stonk" href="#"><span class="logo-slot" data-logo="stonk"></span><span><b>Stonk Launchpad</b><small>Opens in a new tab</small></span></a>
       <a class="sm-item" data-link="x" href="#"><span class="logo-slot" data-logo="x"></span><span><b>X / Twitter</b><small>Project account</small></span></a>
       <a class="sm-item" data-link="dexscreener" href="#"><span class="logo-slot" data-logo="dexscreener"></span><span><b>Dexscreener</b><small>Project chart</small></span></a>
-      <button class="sm-item" id="modItem"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l6 2v5c0 3.5-2.6 6-6 7-3.4-1-6-3.5-6-7V3z" fill="#65D623" stroke="#2c7a12"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="1.6" fill="none"/></svg><span><b id="modItemLabel">Moderator sign-in</b><small>For site moderators</small></span></button>
       <button class="sm-item" id="smSound"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z" fill="#fff" stroke="#101A47"/><path d="M11 5c1.5 1.5 1.5 4.5 0 6" stroke="#101A47" fill="none"/></svg><span><b id="smSoundLabel">Sound: off</b><small>Startup chime and clicks</small></span></button>
     </div>
   </div>
@@ -371,18 +370,6 @@
   <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="pfpModalTitle">
     <div class="win-title"><span class="ttl" id="pfpModalTitle">Save your PFP</span><button class="tbtn close" data-close aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
     <div class="win-body"><img class="pfp-out" id="pfpOut" alt="Your generated PFP, 400 by 400 pixels"><p style="margin:0;font-size:12.5px;text-align:center">Press and hold (phone) or right-click (desktop) the image and choose Save image.</p><div class="dlg-actions"><button class="btn-xp" type="button" data-close>Close</button></div></div>
-  </div>
-</div>
-
-<div class="modal" id="modModal" hidden>
-  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modTitle">
-    <div class="win-title"><span class="ttl" id="modTitle">Moderator sign-in</span><button class="tbtn close" type="button" data-close aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
-    <form class="win-body" id="modForm">
-      <div class="dlg-row"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l6 2v5c0 3.5-2.6 6-6 7-3.4-1-6-3.5-6-7V3z" fill="#65D623" stroke="#2c7a12"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="1.6" fill="none"/></svg><p>Enter the moderator key you set in Vercel. It stays in this browser tab only.</p></div>
-      <label class="field" for="modKey">Moderator key<span class="inp"><input type="password" id="modKey" autocomplete="off"></span></label>
-      <p class="err-text" id="modErr" role="alert"></p>
-      <div class="dlg-actions"><button class="btn-xp" type="button" data-close>Cancel</button><button class="btn-xp primary" type="submit">Sign in</button></div>
-    </form>
   </div>
 </div>
 

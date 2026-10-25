@@ -38,7 +38,7 @@ scripts/test-api.mjs   tests every endpoint against an in-memory database
 | Guestbook | 4-280 chars, 1 entry / 45 s per browser, 8 / day per network, links blocked |
 | Supporters | 1 signature per browser (editable / removable), max 3 new per network per day |
 | Reports | 1 per person per post; 3 reports hide a post automatically |
-| Moderation | hide / unhide / delete / ban (bans the sender's browser and network) |
+| Moderation | community-driven: 3 reports hide a post automatically |
 
 Signatures count browsers within those limits. They are **not** verified unique people.
 IP addresses are never stored, only salted hashes used for limits and bans.
@@ -49,7 +49,7 @@ IP addresses are never stored, only salted hashes used for limits and bans.
 |---|---|---|
 | `KV_REST_API_URL`, `KV_REST_API_TOKEN` (or `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`) | Added automatically when you connect the Upstash Redis store to the project | Database |
 | `MSGA_SALT` | Already set on the project | Hashing secret for session and network ids |
-| `MSGA_ADMIN_TOKEN` | **You** (pick a long random phrase, 12+ characters) | Moderator key used in Start menu > Moderator sign-in |
+| `MSGA_ADMIN_TOKEN` | Optional, not set | Enables /api/admin (hide/delete/ban). Without it moderation is community reports only |
 
 After changing environment variables, redeploy (Deployments > ... > Redeploy).
 

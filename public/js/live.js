@@ -31,7 +31,7 @@ const TAB = Math.random().toString(36).slice(2, 8);
 const myPosts = new Set(JSON.parse(store.get('msga_mine') || '[]'));
 const myReports = new Set();
 function rememberMine(id){ myPosts.add(id); store.set('msga_mine', JSON.stringify([...myPosts].slice(-300))) }
-let adminKey = (() => { try { return sessionStorage.getItem('msga_admin') || '' } catch(e){ return '' } })();
+let adminKey = '';
 
 /* ---------- API ---------- */
 async function api(path, {method = 'GET', body, admin} = {}){
@@ -386,27 +386,10 @@ gbForm.addEventListener('submit', async e => {
   finally{ btn.disabled = false; btn.textContent = 'Sign the guestbook' }
 });
 
-/* ---------- moderator mode ---------- */
-function setAdmin(key){
-  adminKey = key || '';
-  try { key ? sessionStorage.setItem('msga_admin', key) : sessionStorage.removeItem('msga_admin') } catch(e){}
-  $('#modItemLabel').textContent = adminKey ? 'Moderator: sign out' : 'Moderator sign-in';
-  document.documentElement.classList.toggle('is-mod', !!adminKey);
-  renderAll(true);
-}
-$('#modItem').addEventListener('click', () => {
-  closeStart();
-  if (adminKey){ setAdmin(''); balloon('MODERATOR MODE OFF', 'Moderation tools are hidden again.'); return }
-  $('#modErr').textContent = ''; $('#modKey').value = ''; $('#modModal').hidden = false; $('#modKey').focus();
-});
-$('#modForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const key = $('#modKey').value.trim(); if (!key) return;
-  const prev = adminKey; adminKey = key;
-  try { await api('/api/admin', {method:'POST', admin: true, body:{action:'check'}}); $('#modModal').hidden = true; setAdmin(key); balloon('MODERATOR MODE ON', 'Hide, delete and ban buttons now show on chat and guestbook posts.') }
-  catch(err){ adminKey = prev; $('#modErr').textContent = err.message }
-});
-if (adminKey) setAdmin(adminKey);
+/* ---------- moderation ----------
+   No moderator accounts: posts are moderated by the community.
+   3 reports hide a post automatically (server-side). */
+function setAdmin(key){ adminKey = key || ''; renderAll(true) }
 
 /* ---------- render + start ---------- */
 function renderAll(force){ updateStats(); renderSups(); renderChat(force); renderWall(force); paintChatTitle(); if (!$('#supportModal').hidden && supView === 'form' && !document.activeElement?.closest('#supBody')) renderSupport() }
