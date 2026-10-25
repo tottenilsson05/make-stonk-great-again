@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Make Stonk Great Again</title>
+<meta name="description" content="Make Stonk Great Again: a community movement to bring the culture, creativity and volume back to the trenches. Less rugs. Less fake hype. More Stonk.">
+<meta name="theme-color" content="#1769E8">
+<link rel="icon" type="image/png" href="/assets/head64.png">
+<link rel="apple-touch-icon" href="/assets/head.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Make Stonk Great Again">
+<meta property="og:description" content="Less rugs. Less fake hype. More Stonk. The trenches deserve better.">
+<meta property="og:image" content="/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Make Stonk Great Again">
+<meta name="twitter:description" content="Less rugs. Less fake hype. More Stonk.">
+<meta name="twitter:image" content="/assets/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Silkscreen&family=VT323&display=swap">
+<link rel="preload" as="image" href="/assets/bg.webp">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<!-- ========== INTRO ========== -->
+<div class="intro" id="intro" aria-label="Stonk OS boot screen">
+  <div class="intro-bg" id="introBg"></div>
+  <div class="intro-clouds" aria-hidden="true">
+    <div class="cloud" style="top:8%;animation-duration:90s;animation-delay:-20s"></div>
+    <div class="cloud" style="top:22%;width:260px;animation-duration:120s;animation-delay:-70s"></div>
+    <div class="cloud" style="top:4%;width:500px;height:150px;animation-duration:150s;animation-delay:-110s"></div>
+  </div>
+  <div class="intro-ui">
+    <button class="chip" id="introSound" type="button" aria-pressed="false"></button>
+    <button class="chip" id="skipIntro" type="button">Skip intro
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l6 5-6 5zM9 3l6 5-6 5z" fill="currentColor"/></svg></button>
+  </div>
+  <div class="intro-stage">
+    <div class="scene" id="scene">
+      <div class="pc">
+        <div class="pc-shadow"></div>
+        <div class="monitor">
+          <div class="bezel">
+            <div class="screen-well">
+              <div class="screen" id="screen">
+                <div class="crt-line"></div>
+                <div class="layer-wrap">
+                  <div class="layer boot" id="bootLayer" hidden>
+                    <div class="boot-head"><img src="assets/head64.png" alt=""><div><b>STONK OS</b><small>Independent community build &middot; v20.04</small></div></div>
+                    <div id="bootLines" style="display:flex;flex-direction:column;gap:1.4cqw"></div>
+                    <div class="xpstrip" id="xpStrip" hidden><span>STARTING STONK OS</span><div class="track"><i class="blk"></i><i class="blk"></i><i class="blk"></i></div></div>
+                  </div>
+                  <div class="layer enter" id="enterLayer" hidden>
+                    <img src="assets/head.png" alt="">
+                    <div class="t1">MAKE STONK<br><em>GREAT AGAIN</em></div>
+                    <p>THE TRENCHES NEED A NEW HOME.</p>
+                    <button class="enter-btn" id="enterBtn" type="button">[ ENTER ]</button>
+                    <small>press enter or tap</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chin">
+              <span class="brand">STONKTRON 17&Prime;</span>
+              <span class="chin-r"><i class="knob"></i><i class="knob"></i><i class="led" id="monLed"></i><i class="pwr"></i></span>
+            </div>
+          </div>
+          <div class="neck"></div>
+          <div class="base"></div>
+        </div>
+        <div class="tower" aria-hidden="true">
+          <div class="bay cd"></div><div class="bay"></div>
+          <div class="floppy"></div>
+          <div class="tower-leds"><i class="led" id="towerLed"></i><i class="led" id="hddLed"></i></div>
+          <i class="pwr"></i>
+          <div class="tower-badge">STONK<br>INSIDE</div>
+          <div class="vents"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="intro-note">Independent community project &middot; not operated by or affiliated with Stonk</div>
+</div>
+
+<div class="welcome" id="welcome" aria-hidden="true">
+  <div class="top"></div>
+  <div class="mid"><img src="assets/head.png" alt=""><div class="sep"></div><div class="w">welcome</div></div>
+  <div class="bot"></div>
+</div>
+
+<!-- ========== SITE ========== -->
+<div class="wallpaper" aria-hidden="true"></div>
+<div class="dusk" id="dusk" aria-hidden="true"></div>
+<nav class="dock" id="dock" aria-label="Quick links"><button class="tile opt" type="button" data-go="about" data-magnet=".14"><span class="ic"><svg class="ico-info" viewBox="0 0 32 32" aria-hidden="true"><defs><radialGradient id="ig" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#9fd0ff"/><stop offset=".55" stop-color="#1769E8"/><stop offset="1" stop-color="#0a3a9c"/></radialGradient></defs><circle cx="16" cy="16" r="14" fill="url(#ig)" stroke="#0a2f8a"/><ellipse cx="16" cy="9" rx="9" ry="5" fill="#fff" opacity=".35"/><rect x="14" y="13" width="4" height="11" rx="1" fill="#fff"/><circle cx="16" cy="9.5" r="2.2" fill="#fff"/></svg></span><span class="lab">About</span></button><button class="tile opt" type="button" data-go="movement" data-magnet=".14"><span class="ic"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12h6l12-8v24l-12-8H4z" fill="#FFD25A" stroke="#7a4d00" stroke-width="1.5"/><path d="M10 20l2 8h4l-2-8" fill="#FFD25A" stroke="#7a4d00" stroke-width="1.5"/><path d="M25 11c2 2 2 8 0 10" stroke="#7a4d00" stroke-width="1.6" fill="none"/></svg></span><span class="lab">Movement</span></button><button class="tile opt" type="button" data-go="guestbook" data-magnet=".14"><span class="ic"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="3" width="21" height="26" rx="2" fill="#fff" stroke="#5b7ab8" stroke-width="1.5"/><rect x="6" y="3" width="5" height="26" fill="#1769E8"/><path d="M14 10h10M14 15h10M14 20h7" stroke="#5b7ab8" stroke-width="1.5"/><path d="M22 22l6-6 2 2-6 6h-2z" fill="#F5C542" stroke="#7a4d00"/></svg></span><span class="lab">Guestbook</span></button><span class="dock-sep opt-sep" aria-hidden="true"></span><a class="tile" data-link="dexscreener" href="#" data-magnet=".14"><span class="ic"><span class="logo-slot" data-logo="dexscreener"></span></span><span class="lab">Dexscreener</span></a><a class="tile" data-link="stonk" href="#" data-magnet=".14"><span class="ic"><span class="logo-slot" data-logo="stonk"></span></span><span class="lab">Stonk</span></a><a class="tile" data-link="x" href="#" data-magnet=".14"><span class="ic"><span class="logo-slot" data-logo="x"></span></span><span class="lab">X</span></a><button class="tile" type="button" data-go="chat" data-magnet=".14"><span class="ic"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 5h17a2 2 0 012 2v9a2 2 0 01-2 2H11l-5 5v-5H3a2 2 0 01-2-2V7a2 2 0 012-2z" fill="#fff" stroke="#101A47" stroke-width="1.5"/><path d="M24 11h5a2 2 0 012 2v8a2 2 0 01-2 2h-1v4l-4-4h-7a2 2 0 01-2-2v-1" fill="#7FFFF6" stroke="#101A47" stroke-width="1.5"/><circle cx="7" cy="11.5" r="1.4" fill="#1769E8"/><circle cx="11.5" cy="11.5" r="1.4" fill="#1769E8"/><circle cx="16" cy="11.5" r="1.4" fill="#1769E8"/></svg></span><span class="lab">Chat</span></button><button class="tile" type="button" data-go="pfp" data-magnet=".14"><span class="ic"><img class="avatar" src="assets/head64.png" alt=""></span><span class="lab">PFP</span></button></nav>
+<main id="site">
+  <section class="hero" id="home" aria-label="Make Stonk Great Again">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-hills" id="heroHills" aria-hidden="true"></div>
+    <div class="sparkles" aria-hidden="true"><i style="left:8%;top:18%;animation-delay:0s"></i><i style="left:22%;top:40%;animation-delay:1.7s"></i><i style="left:37%;top:12%;animation-delay:3.1s"></i><i style="left:48%;top:32%;animation-delay:4.6s"></i><i style="left:61%;top:8%;animation-delay:2.2s"></i><i style="left:74%;top:28%;animation-delay:5.3s"></i><i style="left:86%;top:14%;animation-delay:0.9s"></i><i style="left:93%;top:38%;animation-delay:3.8s"></i><i style="left:15%;top:62%;animation-delay:2.9s"></i><i style="left:55%;top:58%;animation-delay:5.9s"></i></div>
+    <div class="hero-sun"></div>
+    <div class="hero-clouds" id="heroClouds" aria-hidden="true">
+      <div class="cloud" style="top:6%;animation-duration:110s;animation-delay:-30s;opacity:.7"></div>
+      <div class="cloud" style="top:18%;width:300px;animation-duration:140s;animation-delay:-90s;opacity:.6"></div>
+      <div class="cloud" style="top:2%;width:520px;height:160px;animation-duration:170s;animation-delay:-60s;opacity:.55"></div>
+    </div>
+    <div class="hero-copy">
+      <span class="status-pill"><i class="dot"></i>STONK OS &mdash; ONLINE</span>
+      <h1>MAKE STONK <span class="g">GREAT AGAIN</span></h1>
+      <span class="titlebar-band"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="2" fill="#fff" opacity=".9"/><path d="M4 11l3-4 2 2 3-5" stroke="#1769E8" stroke-width="2" fill="none"/></svg>THE TRENCHES DESERVE BETTER.</span>
+      <p class="hero-desc">A community movement to bring the culture, creativity, and volume back to the trenches &mdash; one Stonk at a time.</p>
+      <div class="cta-row">
+        <button class="btn-start" type="button" data-action="support" data-magnet=".12"><span class="gem"></span>JOIN THE MOVEMENT</button>
+        <a class="btn-luna" data-link="stonk" href="#" data-magnet=".12"><span class="logo-slot" data-logo="stonk"></span>EXPLORE STONK <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13" stroke="#fff" stroke-width="2" fill="none"/></svg></a>
+      </div>
+    </div>
+    <div class="char-shadow" id="charShadow" aria-hidden="true"></div>
+    <img class="hero-char" id="heroChar" src="assets/char.webp" fetchpriority="high" decoding="async" width="753" height="1149" alt="The Make Stonk Great Again character: smooth 3D face, teal cap, navy blazer, cream knit vest and bright blue tie">
+    <div class="sticker s1" data-depth="18"><span>LESS RUGS</span></div>
+    <div class="sticker s2" data-depth="26"><span>LESS FAKE HYPE</span></div>
+    <div class="sticker s3" data-depth="14"><span>MORE STONK</span></div>
+    <div class="streak" aria-hidden="true"></div>
+    <div class="hero-hint"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="#fff" stroke-width="2" fill="none"/></svg>scroll down the desktop</div>
+  </section>
+
+  <div class="marquee" aria-label="Less rugs. Less fake hype. More Stonk.">
+    <div class="marquee-track" aria-hidden="true" id="marqueeTrack"></div>
+  </div>
+
+  <div class="cloud-band" aria-hidden="true"><div class="cloud" style="width:520px;height:150px;animation-delay:-40s"></div><div class="cloud" style="width:360px;animation-delay:-100s;top:-40px"></div></div>
+  <div class="desk" id="desk">
+    <div class="deco-layer" aria-hidden="true">
+      <div class="deco" data-speed=".14" style="left:-150px;top:180px"><div class="dt">Disk Cleanup</div><div class="db">Scanning the trenches&hellip;<div class="mini-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>0 rugs found.</div></div>
+      <div class="deco-icon" data-speed=".22" style="right:-110px;top:120px"><svg viewBox="0 0 32 32"><rect x="3" y="4" width="26" height="18" rx="2" fill="#dfe8f7" stroke="#334"/><rect x="6" y="7" width="20" height="12" fill="#1769E8"/><rect x="11" y="23" width="10" height="3" fill="#b8b2a0"/><rect x="7" y="26" width="18" height="2" fill="#cfc8b4"/></svg>My Computer</div>
+      <div class="deco" data-speed=".1" style="right:-160px;top:1150px"><div class="dt">Stonk OS</div><div class="db">The trenches are evolving.<br>Restore point created.</div></div>
+      <div class="deco-icon" data-speed=".26" style="left:-110px;top:1500px"><svg viewBox="0 0 32 32"><path d="M8 9h16l-2 19H10z" fill="#e8f1ff" stroke="#3c5a8a"/><rect x="6" y="6" width="20" height="3" rx="1" fill="#c9d8f2" stroke="#3c5a8a"/><path d="M13 13v11M16 13v11M19 13v11" stroke="#9fb4d6"/></svg>Recycle Bin</div>
+      <div class="deco" data-speed=".18" style="left:-140px;top:2350px"><div class="dt">Volume Restore</div><div class="db">Restoring culture&hellip; 72%<div class="mini-bar"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    </div>
+    <div class="restore-row" id="restoreRow"></div>
+
+    <!-- ABOUT -->
+    <article class="win span-5" id="about" data-title="About.txt" data-reveal="left">
+      <div class="win-title"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="1" width="12" height="14" fill="#fff" stroke="#5b7ab8"/><path d="M4 5h8M4 8h8M4 11h6" stroke="#5b7ab8"/></svg><span class="ttl">About.txt &mdash; Notepad</span>
+        <button class="tbtn" data-act="min" aria-label="Minimize"><svg viewBox="0 0 11 11"><rect x="1" y="7" width="6" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn" data-act="max" aria-label="Maximize"><svg viewBox="0 0 11 11"><rect x="1" y="1" width="9" height="9" fill="none" stroke="#fff" stroke-width="1.6"/><rect x="1" y="1" width="9" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn close" data-act="close" aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+      <div class="menu-bar" aria-hidden="true"><span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span></div>
+      <div class="win-body" style="padding:6px">
+        <div class="notepad">
+          <h2>What is this?</h2>
+          <p>Make Stonk Great Again is a community-driven movement. A lot of people in the trenches are tired of how things feel on Pump.fun right now, and we think the culture deserves a fresh start somewhere else.</p>
+          <p>So we're pointing attention, creators, communities and volume toward the Stonk launchpad.</p>
+          <ul>
+            <li>The trenches deserve better.</li>
+            <li>Communities deserve better.</li>
+            <li>Real builders deserve more attention.</li>
+            <li>Memecoin culture needs a fresh start.</li>
+            <li>We want to help make Stonk the next home for the trenches.</li>
+          </ul>
+          <p class="fineprint">Independent community project. Not built, run or endorsed by Stonk. Nothing here is financial advice.</p>
+        </div>
+        <div class="statusbar" aria-hidden="true"><span>Ln 1, Col 1</span><span>UTF-8</span></div>
+      </div>
+    </article>
+
+    <!-- MOVEMENT -->
+    <article class="win span-7" id="movement" data-title="The Movement" data-reveal="right" data-delay="80">
+      <div class="win-title"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l6-4v12l-6-4H2z" fill="#FFD25A" stroke="#7a4d00"/><path d="M5 10l1 4h2l-1-4" fill="#FFD25A" stroke="#7a4d00"/></svg><span class="ttl">The Trenches Need Change &mdash; Properties</span>
+        <button class="tbtn" data-act="min" aria-label="Minimize"><svg viewBox="0 0 11 11"><rect x="1" y="7" width="6" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn" data-act="max" aria-label="Maximize"><svg viewBox="0 0 11 11"><rect x="1" y="1" width="9" height="9" fill="none" stroke="#fff" stroke-width="1.6"/><rect x="1" y="1" width="9" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn close" data-act="close" aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+      <div class="win-body">
+        <div class="tabs" role="tablist" aria-label="The movement">
+          <button class="tab" role="tab" id="tab-problem" aria-selected="true" aria-controls="panel-problem">The problem</button>
+          <button class="tab" role="tab" id="tab-alt" aria-selected="false" aria-controls="panel-alt">The alternative</button>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-problem" aria-labelledby="tab-problem">
+          <h2 data-words>THE TRENCHES NEED CHANGE.</h2>
+          <p class="lede">These are the concerns people in the community keep raising about the current launchpad culture:</p>
+          <ul class="concerns">
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2l10 18H1z" fill="#FFD23F" stroke="#7a5a00"/><rect x="10" y="8" width="2" height="7" fill="#222"/><rect x="10" y="16" width="2" height="2" fill="#222"/></svg>Rug pulls and scam projects</li>
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2l10 18H1z" fill="#FFD23F" stroke="#7a5a00"/><rect x="10" y="8" width="2" height="7" fill="#222"/><rect x="10" y="16" width="2" height="2" fill="#222"/></svg>Too much short-term promotion</li>
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2l10 18H1z" fill="#FFD23F" stroke="#7a5a00"/><rect x="10" y="8" width="2" height="7" fill="#222"/><rect x="10" y="16" width="2" height="2" fill="#222"/></svg>Influencer-driven hype cycles</li>
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2l10 18H1z" fill="#FFD23F" stroke="#7a5a00"/><rect x="10" y="8" width="2" height="7" fill="#222"/><rect x="10" y="16" width="2" height="2" fill="#222"/></svg>Low-quality launches</li>
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2l10 18H1z" fill="#FFD23F" stroke="#7a5a00"/><rect x="10" y="8" width="2" height="7" fill="#222"/><rect x="10" y="16" width="2" height="2" fill="#222"/></svg>Fading confidence in the current launchpad culture</li>
+          </ul>
+          <p class="note"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#1769E8"/><rect x="7" y="7" width="2" height="5" fill="#fff"/><rect x="7" y="4" width="2" height="2" fill="#fff"/></svg>These are opinions shared across the community. They are not claims about any specific person or project.</p>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-alt" aria-labelledby="tab-alt" hidden>
+          <h2>COMPETITION IS HEALTHY.</h2>
+          <p class="lede">We think the memecoin community does better when launchpads have to compete for it. One place shouldn't own the whole culture.</p>
+          <ul class="concerns">
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#65D623" stroke="#2c7a12"/><path d="M6 11l3.5 3.5L16 8" stroke="#fff" stroke-width="2.4" fill="none"/></svg>Explore Stonk and launch there</li>
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#65D623" stroke="#2c7a12"/><path d="M6 11l3.5 3.5L16 8" stroke="#fff" stroke-width="2.4" fill="none"/></svg>Back creators who actually build</li>
+            <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#65D623" stroke="#2c7a12"/><path d="M6 11l3.5 3.5L16 8" stroke="#fff" stroke-width="2.4" fill="none"/></svg>Build healthier communities around coins</li>
+          </ul>
+          <p class="note"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#1769E8"/><rect x="7" y="7" width="2" height="5" fill="#fff"/><rect x="7" y="4" width="2" height="2" fill="#fff"/></svg>Do your own research on every coin, on every launchpad.</p>
+        </div>
+        <div class="manifesto">
+          <p class="big" data-words>THE CULTURE DOESN'T BELONG TO ONE LAUNCHPAD.</p>
+          <p class="big2" data-reveal="zoom" data-delay="300">IT BELONGS TO THE PEOPLE.</p>
+          <button class="btn-start btn-msga" type="button" data-action="support"><span class="gem"></span>MAKE STONK GREAT AGAIN</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- MONITOR -->
+    <article class="win span-12 monitor-win" id="growing" data-title="Movement Monitor" data-reveal="pop">
+      <div class="win-title"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="2" width="14" height="10" fill="#101A47" stroke="#9cc"/><path d="M2 9l3-3 2 2 3-4 4 3" stroke="#41F27A" fill="none"/><rect x="5" y="13" width="6" height="2" fill="#9cc"/></svg><span class="ttl">Movement Monitor</span>
+        <button class="tbtn" data-act="min" aria-label="Minimize"><svg viewBox="0 0 11 11"><rect x="1" y="7" width="6" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn" data-act="max" aria-label="Maximize"><svg viewBox="0 0 11 11"><rect x="1" y="1" width="9" height="9" fill="none" stroke="#fff" stroke-width="1.6"/><rect x="1" y="1" width="9" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn close" data-act="close" aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+      <div class="win-body">
+        <div class="monitor-head">
+          <div><h2 data-words>THE MOVEMENT IS GROWING.</h2><p>Every number is read live from the site's database and is the same for every visitor. Nothing is seeded or estimated.</p></div>
+          <span class="status-pill" id="liveState"><i class="dot" style="background:#bbb;box-shadow:none"></i>CONNECTING&hellip;</span>
+        </div>
+        <div class="lcds" data-reveal="rise" data-delay="120">
+          <div class="lcd" id="lcdSup"><div class="lbl">TOTAL SUPPORTERS</div><div class="num dim">&mdash;</div><div class="sub">shared by every visitor</div></div>
+          <div class="lcd" id="lcdOn"><div class="lbl">ONLINE NOW</div><div class="num dim">&mdash;</div><div class="sub">pages open right now</div></div>
+          <div class="lcd" id="lcdMsg"><div class="lbl">COMMUNITY MESSAGES</div><div class="num dim">&mdash;</div><div class="sub">sent in trench chat</div></div>
+          <div class="lcd" id="lcdDays"><div class="lbl">DAYS SINCE LAUNCH</div><div class="num dim">&mdash;</div><div class="sub">launch date not set</div></div>
+        </div>
+        <div class="support-row">
+          <button class="btn-start" type="button" data-action="support" id="supportBtn"><span class="gem"></span>I SUPPORT THE MOVEMENT</button>
+          <p class="note"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#1769E8"/><rect x="7" y="7" width="2" height="5" fill="#fff"/><rect x="7" y="4" width="2" height="2" fill="#fff"/></svg>One signature per browser plus a daily limit per network, enforced on the server. It counts signatures, not verified unique people.</p>
+        </div>
+        <div class="listview" data-reveal="fade" data-delay="200">
+          <table><thead><tr><th>Supporter</th><th>Signed</th></tr></thead><tbody id="supList"><tr class="empty"><td colspan="2">Loading signatures&hellip;</td></tr></tbody></table>
+        </div>
+      </div>
+    </article>
+
+    <!-- GUESTBOOK -->
+    <article class="win span-12" id="guestbook" data-title="Guestbook" data-reveal="drop">
+      <div class="win-title"><svg width="16" height="16" viewBox="0 0 32 32" class="ico" aria-hidden="true"><rect x="6" y="3" width="21" height="26" rx="2" fill="#fff" stroke="#5b7ab8" stroke-width="1.5"/><rect x="6" y="3" width="5" height="26" fill="#1769E8"/><path d="M14 10h10M14 15h10M14 20h7" stroke="#5b7ab8" stroke-width="1.5"/><path d="M22 22l6-6 2 2-6 6h-2z" fill="#F5C542" stroke="#7a4d00"/></svg><span class="ttl">Guestbook.txt &mdash; Notepad</span>
+        <button class="tbtn" data-act="min" aria-label="Minimize"><svg viewBox="0 0 11 11"><rect x="1" y="7" width="6" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn" data-act="max" aria-label="Maximize"><svg viewBox="0 0 11 11"><rect x="1" y="1" width="9" height="9" fill="none" stroke="#fff" stroke-width="1.6"/><rect x="1" y="1" width="9" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn close" data-act="close" aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+      <div class="menu-bar" aria-hidden="true"><span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span></div>
+      <div class="win-body">
+        <div class="gb">
+          <div>
+            <h2 data-words>WHY ARE YOU HERE?</h2>
+            <p class="lede">Sign the guestbook and say why you support the movement. Every entry is public and shows up for everyone live.</p>
+            <form class="gb-form" id="gbForm" novalidate>
+              <label class="field" for="gbNick">Name<input type="text" id="gbNick" maxlength="20" autocomplete="off" placeholder="your nickname"></label>
+              <label class="chk"><input type="checkbox" id="gbAnon"> Sign anonymously</label>
+              <label class="field" for="gbText">Your message<textarea id="gbText" maxlength="280" placeholder="I'm here because&hellip;"></textarea></label>
+              <div class="gb-row"><span id="gbCount">0 / 280</span><button class="btn-xp primary" type="submit" id="gbSubmit">Sign the guestbook</button></div>
+              <p class="gb-note" id="gbNote" role="status"></p>
+              <p class="fine">Links are switched off. Posts with 3 community reports are hidden automatically.</p>
+            </form>
+          </div>
+          <div class="gb-paper"><div class="gb-list" id="gbList" aria-live="polite"></div></div>
+        </div>
+        <div class="statusbar" aria-hidden="true"><span>Newest entries first</span><span>Live</span></div>
+      </div>
+    </article>
+
+    <!-- PFP -->
+    <article class="win span-12" id="pfp" data-title="PFP Studio" data-reveal="zoom">
+      <div class="win-title"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a7 7 0 100 14c1 0 1.4-.8 1-1.6-.5-1 .2-2 1.3-2H12a3 3 0 003-3C15 4 12 1 8 1z" fill="#F5EBDD" stroke="#7a6a4a"/><circle cx="4.5" cy="7" r="1.3" fill="#1769E8"/><circle cx="6.5" cy="4" r="1.3" fill="#65D623"/><circle cx="10" cy="4" r="1.3" fill="#E2552F"/><circle cx="12" cy="7" r="1.3" fill="#005C70"/></svg><span class="ttl">PFP Studio.exe</span>
+        <button class="tbtn" data-act="min" aria-label="Minimize"><svg viewBox="0 0 11 11"><rect x="1" y="7" width="6" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn" data-act="max" aria-label="Maximize"><svg viewBox="0 0 11 11"><rect x="1" y="1" width="9" height="9" fill="none" stroke="#fff" stroke-width="1.6"/><rect x="1" y="1" width="9" height="2" fill="#fff"/></svg></button>
+        <button class="tbtn close" data-act="close" aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+      <div class="win-body">
+        <div class="studio">
+          <div>
+            <div class="canvas-frame"><canvas id="pfpCanvas" width="800" height="800" aria-label="PFP preview"></canvas><div class="loading" id="pfpLoading">LOADING LAYERS&hellip;</div></div>
+            <div class="studio-actions">
+              <button class="btn-xp" type="button" id="pfpRandom">RANDOMIZE</button>
+              <button class="btn-xp" type="button" id="pfpReset">RESET</button>
+              <button class="btn-xp primary" type="button" id="pfpDownload">DOWNLOAD PFP</button>
+            </div>
+          </div>
+          <div>
+            <h2 data-words>MAKE YOUR OWN.</h2>
+            <p class="lede">Recolor the original character piece by piece. The face, shading and pose stay exactly as drawn. Exports a 400&times;400 PNG.</p>
+            <div class="groups" id="pfpGroups"></div>
+            <fieldset class="gb" style="margin-top:12px"><legend>Background</legend><div class="bgopts" id="bgOpts"></div></fieldset>
+            <fieldset class="gb" style="margin-top:12px"><legend>Nostalgic effects</legend><div class="fx" id="fxOpts"></div></fieldset>
+            <p class="studio-note">Each part has its own mask cut from your artwork (cap, cap lettering, suit, tie and pocket square, vest), so a color change only touches that part and keeps the original lighting.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <footer class="foot" data-reveal="fade">
+      <div>
+        <b style="color:var(--navy)">Make Stonk Great Again</b> &middot; Less rugs. Less fake hype. More Stonk.<br>
+        Independent community project. Not operated by or affiliated with Stonk. Not financial advice.
+      </div>
+      <div class="ca" id="caBox"></div>
+      <div class="links">
+        <a class="btn-xp" data-link="stonk" href="#"><span class="logo-slot" data-logo="stonk"></span>Stonk launchpad</a>
+        <a class="btn-xp" data-link="x" href="#"><span class="logo-slot" data-logo="x"></span>X / Twitter</a>
+        <a class="btn-xp" data-link="dexscreener" href="#"><span class="logo-slot" data-logo="dexscreener"></span>Dexscreener</a>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<!-- taskbar -->
+<nav class="taskbar pre" id="taskbar" aria-label="Main navigation">
+  <button class="start" id="startBtn" type="button" aria-expanded="false" aria-controls="startMenu"><img src="assets/head64.png" alt=""><span class="lab">stonk</span></button>
+  <div class="tasks">
+    <button class="tk" data-go="home" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2L1 8h2v6h4v-4h2v4h4V8h2z" fill="#F5EBDD" stroke="#101A47"/></svg><span class="lab">Home</span></button>
+    <button class="tk" data-go="chat" type="button" id="chatTk" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 5h17a2 2 0 012 2v9a2 2 0 01-2 2H11l-5 5v-5H3a2 2 0 01-2-2V7a2 2 0 012-2z" fill="#fff" stroke="#101A47" stroke-width="1.5"/><path d="M24 11h5a2 2 0 012 2v8a2 2 0 01-2 2h-1v4l-4-4h-7a2 2 0 01-2-2v-1" fill="#7FFFF6" stroke="#101A47" stroke-width="1.5"/><circle cx="7" cy="11.5" r="1.4" fill="#1769E8"/><circle cx="11.5" cy="11.5" r="1.4" fill="#1769E8"/><circle cx="16" cy="11.5" r="1.4" fill="#1769E8"/></svg><span class="lab">Trench Chat</span></button>
+    <button class="tk" data-go="guestbook" type="button"><svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="3" width="21" height="26" rx="2" fill="#fff" stroke="#5b7ab8" stroke-width="1.5"/><rect x="6" y="3" width="5" height="26" fill="#1769E8"/><path d="M14 10h10M14 15h10M14 20h7" stroke="#5b7ab8" stroke-width="1.5"/><path d="M22 22l6-6 2 2-6 6h-2z" fill="#F5C542" stroke="#7a4d00"/></svg><span class="lab">Guestbook</span></button>
+  </div>
+  <div class="tray">
+    <span class="os"><i class="dot"></i>STONK OS &mdash; ONLINE</span>
+    <button type="button" id="traySound" aria-pressed="false" aria-label="Sound"></button>
+    <time id="clock"></time>
+  </div>
+</nav>
+
+<div class="startmenu" id="startMenu" hidden>
+  <div class="sm-head"><img src="assets/head.png" alt=""><div>Trencher<small>Make Stonk Great Again</small></div></div>
+  <div class="sm-cols">
+    <div class="sm-col">
+      <button class="sm-item" data-go="home"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2L1 8h2v6h4v-4h2v4h4V8h2z" fill="#F5EBDD" stroke="#101A47"/></svg><span><b>Home</b><small>Back to the hills</small></span></button>
+      <button class="sm-item" data-go="about"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="1" width="12" height="14" fill="#fff" stroke="#5b7ab8"/><path d="M4 5h8M4 8h8M4 11h6" stroke="#5b7ab8"/></svg><span><b>About</b><small>What this is</small></span></button>
+      <button class="sm-item" data-go="movement"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l6-4v12l-6-4H2z" fill="#FFD25A" stroke="#7a4d00"/></svg><span><b>The Movement</b><small>Why change</small></span></button>
+      <button class="sm-item" data-go="growing"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="2" width="14" height="10" fill="#101A47"/><path d="M2 9l3-3 2 2 3-4 4 3" stroke="#41F27A" fill="none"/></svg><span><b>Movement Monitor</b><small>Live counts</small></span></button>
+      <button class="sm-item" data-go="chat"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 2h10v7H5l-3 3V9H1z" fill="#fff" stroke="#101A47"/><path d="M12 5h3v7h-1v2l-2-2H7v-2" fill="#7FFFF6" stroke="#101A47"/></svg><span><b>Community Chat</b><small>Talk live</small></span></button>
+      <button class="sm-item" data-go="guestbook"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="3" width="21" height="26" rx="2" fill="#fff" stroke="#5b7ab8" stroke-width="1.5"/><rect x="6" y="3" width="5" height="26" fill="#1769E8"/><path d="M14 10h10M14 15h10M14 20h7" stroke="#5b7ab8" stroke-width="1.5"/><path d="M22 22l6-6 2 2-6 6h-2z" fill="#F5C542" stroke="#7a4d00"/></svg><span><b>Guestbook</b><small>Why we're here</small></span></button>
+      <button class="sm-item" data-go="pfp"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a7 7 0 100 14c1 0 1.4-.8 1-1.6-.5-1 .2-2 1.3-2H12a3 3 0 003-3C15 4 12 1 8 1z" fill="#F5EBDD" stroke="#7a6a4a"/><circle cx="4.5" cy="7" r="1.3" fill="#1769E8"/><circle cx="10" cy="4" r="1.3" fill="#E2552F"/></svg><span><b>PFP Generator</b><small>Make your own</small></span></button>
+    </div>
+    <div class="sm-col r">
+      <a class="sm-item" data-link="stonk" href="#"><span class="logo-slot" data-logo="stonk"></span><span><b>Stonk Launchpad</b><small>Opens in a new tab</small></span></a>
+      <a class="sm-item" data-link="x" href="#"><span class="logo-slot" data-logo="x"></span><span><b>X / Twitter</b><small>Project account</small></span></a>
+      <a class="sm-item" data-link="dexscreener" href="#"><span class="logo-slot" data-logo="dexscreener"></span><span><b>Dexscreener</b><small>Project chart</small></span></a>
+      <button class="sm-item" id="modItem"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l6 2v5c0 3.5-2.6 6-6 7-3.4-1-6-3.5-6-7V3z" fill="#65D623" stroke="#2c7a12"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="1.6" fill="none"/></svg><span><b id="modItemLabel">Moderator sign-in</b><small>For site moderators</small></span></button>
+      <button class="sm-item" id="smSound"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z" fill="#fff" stroke="#101A47"/><path d="M11 5c1.5 1.5 1.5 4.5 0 6" stroke="#101A47" fill="none"/></svg><span><b id="smSoundLabel">Sound: off</b><small>Startup chime and clicks</small></span></button>
+    </div>
+  </div>
+  <div class="sm-foot">
+    <button type="button" id="restartBtn"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="3" fill="#E2552F" stroke="#fff"/><path d="M10 5v5M6.5 7.5a5 5 0 107 0" stroke="#fff" stroke-width="2" fill="none"/></svg>Restart (replay intro)</button>
+  </div>
+</div>
+
+<div class="chat" id="chat" hidden role="dialog" aria-labelledby="chatTitle">
+  <div class="win-title" id="chatDrag"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 2h10v7H5l-3 3V9H1z" fill="#fff" stroke="#101A47"/><path d="M12 5h3v7h-1v2l-2-2H7v-2" fill="#7FFFF6" stroke="#101A47"/></svg><span class="ttl" id="chatTitle">Trench Chat</span>
+    <button class="tbtn" id="chatMin" aria-label="Minimize chat"><svg viewBox="0 0 11 11"><rect x="1" y="7" width="6" height="2" fill="#fff"/></svg></button>
+    <button class="tbtn close" id="chatClose" aria-label="Close chat"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+  <div class="chat-tools">
+    <label for="nickInput">Name</label>
+    <input type="text" id="nickInput" maxlength="20" placeholder="your nickname" autocomplete="off">
+    <label><input type="checkbox" id="anonChk"> Anonymous</label>
+  </div>
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <form class="chat-send" id="chatForm" autocomplete="off">
+    <button type="button" class="emoji-btn" id="emojiBtn" aria-label="Insert emoji" aria-expanded="false">&#128578;</button>
+    <div class="emoji-pop" id="emojiPop" hidden></div>
+    <input type="text" id="chatInput" maxlength="240" placeholder="Say something to the trenches" aria-label="Message">
+    <button class="btn-xp primary" type="submit" style="min-width:64px" id="chatSendBtn">Send</button>
+  </form>
+  <div class="chat-foot" id="chatFoot"></div>
+</div>
+
+<div class="modal" id="supportModal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="supTitle">
+    <div class="win-title"><span class="ttl" id="supTitle">Join the movement</span><button class="tbtn close" data-close aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+    <div class="win-body" id="supBody"></div>
+  </div>
+</div>
+
+<div class="modal" id="pfpModal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="pfpModalTitle">
+    <div class="win-title"><span class="ttl" id="pfpModalTitle">Save your PFP</span><button class="tbtn close" data-close aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+    <div class="win-body"><img class="pfp-out" id="pfpOut" alt="Your generated PFP, 400 by 400 pixels"><p style="margin:0;font-size:12.5px;text-align:center">Press and hold (phone) or right-click (desktop) the image and choose Save image.</p><div class="dlg-actions"><button class="btn-xp" type="button" data-close>Close</button></div></div>
+  </div>
+</div>
+
+<div class="modal" id="modModal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modTitle">
+    <div class="win-title"><span class="ttl" id="modTitle">Moderator sign-in</span><button class="tbtn close" type="button" data-close aria-label="Close"><svg viewBox="0 0 11 11"><path d="M2 2l7 7M9 2L2 9" stroke="#fff" stroke-width="2"/></svg></button></div>
+    <form class="win-body" id="modForm">
+      <div class="dlg-row"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1l6 2v5c0 3.5-2.6 6-6 7-3.4-1-6-3.5-6-7V3z" fill="#65D623" stroke="#2c7a12"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="1.6" fill="none"/></svg><p>Enter the moderator key you set in Vercel. It stays in this browser tab only.</p></div>
+      <label class="field" for="modKey">Moderator key<span class="inp"><input type="password" id="modKey" autocomplete="off"></span></label>
+      <p class="err-text" id="modErr" role="alert"></p>
+      <div class="dlg-actions"><button class="btn-xp" type="button" data-close>Cancel</button><button class="btn-xp primary" type="submit">Sign in</button></div>
+    </form>
+  </div>
+</div>
+
+<div id="balloonHost"></div>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/live.js"></script>
+<script src="/js/motion.js"></script>
+</body>
+</html>

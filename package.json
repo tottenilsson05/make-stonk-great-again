@@ -1,0 +1,11 @@
+{
+  "name": "make-stonk-great-again",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Make Stonk Great Again: community movement site (static front end + Vercel Functions + Upstash Redis).",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node scripts/test-api.mjs"
+  }
+}
