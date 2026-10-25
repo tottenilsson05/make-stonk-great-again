@@ -528,3 +528,5 @@ fieldset.gb legend{color:#0046d5;font-size:12px;padding:0 4px}
 .msg-a button.mod{color:#a0461c}
 html.is-mod .status-pill.modflag{display:inline-flex}
 .modflag{display:none}
+.logo-slot.generic svg{width:100%;height:100%;display:block;filter:drop-shadow(0 1px 1px rgba(16,26,71,.25))}
+.tile .ic>.logo-slot{width:34px;height:34px}

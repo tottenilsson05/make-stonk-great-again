@@ -5,13 +5,20 @@
    reveals only arm for elements that start below the fold.
    ================================================================== */
 
-/* ---------- official logo slots ---------- */
-const LOGO_ABBR = {dexscreener:'DEX', x:'X', stonk:'STONK', pumpfun:'PUMP'};
+/* ---------- platform icons ----------
+   Official logo files (CONFIG.logos) are used when provided. Until then each slot
+   shows our own generic XP-style icon, never an imitation of a brand logo. */
+const GENERIC_ICONS = {
+  dexscreener: '<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="gdx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3550"/><stop offset="1" stop-color="#101A47"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="6" fill="url(#gdx)"/><path d="M5 23h22" stroke="#4a5778" stroke-width="1"/><rect x="7" y="15" width="3" height="6" fill="#65D623"/><path d="M8.5 13v10" stroke="#65D623"/><rect x="12.5" y="17" width="3" height="5" fill="#ff5d4a"/><path d="M14 15v9" stroke="#ff5d4a"/><rect x="18" y="11" width="3" height="8" fill="#65D623"/><path d="M19.5 9v12" stroke="#65D623"/><rect x="23.5" y="7" width="3" height="9" fill="#65D623"/><path d="M25 5v13" stroke="#65D623"/></svg>',
+  stonk: '<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="gst" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FFFF6"/><stop offset="1" stop-color="#005C70"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="6" fill="url(#gst)"/><path d="M19.5 6.5c3.2 1 5.3 3.1 6 6.2l-7.3 7.3-6.2-6.2z" fill="#fff" stroke="#101A47" stroke-width="1.3"/><circle cx="20.6" cy="11.4" r="1.9" fill="#1769E8" stroke="#101A47"/><path d="M12 13.8l-4.2.8-2.3 3.4 4.7.2M18.2 20l-.8 4.2-3.4 2.3-.2-4.7" fill="#FFD25A" stroke="#101A47" stroke-width="1.2"/><path d="M11.4 20.6l-3.6 3.6" stroke="#ff8a3d" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  x: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="6" fill="#111418"/><text x="16" y="22.5" text-anchor="middle" font-family="Trebuchet MS, Tahoma, sans-serif" font-weight="700" font-size="18" fill="#fff">X</text></svg>',
+  pumpfun: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="6" fill="#65D623"/><path d="M10 22l12-12" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg>'
+};
 $$('.logo-slot').forEach(s => {
   const key = s.dataset.logo, src = CONFIG.logos && CONFIG.logos[key];
   s.textContent = '';
   if (src){ s.classList.add('has-logo'); s.append(el('img', {src, alt:'', loading:'lazy', decoding:'async'})) }
-  else { s.classList.add('placeholder'); s.title = 'Official logo goes here (set CONFIG.logos.' + key + ' in js/config.js)'; s.append(el('b', {text: LOGO_ABBR[key] || key}), el('small', {text:'LOGO'})) }
+  else if (GENERIC_ICONS[key]){ s.classList.add('has-logo', 'generic'); s.innerHTML = GENERIC_ICONS[key] }
 });
 
 /* ---------- spring easing ---------- */
