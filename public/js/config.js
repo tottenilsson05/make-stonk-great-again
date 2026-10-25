@@ -7,7 +7,7 @@ const CONFIG = {
   links: {
     stonk: "https://stonkfun.xyz",   // Stonk launchpad
     x: "",                            // e.g. "https://x.com/yourhandle"
-    dexscreener: ""                   // e.g. "https://dexscreener.com/solana/<pair address>"
+    dexscreener: "https://dexscreener.com/solana/FubKncLirKhy1Ds1odwDi3kn8RE2aFZVd4gc6CAUV8WB"
   },
 
   // Official platform logos. Download them from each platform's own brand / press kit,
@@ -20,6 +20,6 @@ const CONFIG = {
     pumpfun: ""
   },
 
-  contract: "",       // token contract address, shown in the footer once set
+  contract: "FubKncLirKhy1Ds1odwDi3kn8RE2aFZVd4gc6CAUV8WB",   // token contract address (footer)
   launchDate: ""      // "YYYY-MM-DD" -> powers DAYS SINCE LAUNCH
 };
